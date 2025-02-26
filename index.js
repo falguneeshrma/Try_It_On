@@ -25,6 +25,8 @@ const passport = require("passport");
 const localStrategy = require("passport-local");
 const User = require("./models/user.js");
 
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
@@ -97,6 +99,13 @@ app.get("/", (req, res) => {
   res.render("home.ejs");
 });
 
+app.get("/trial", (req, res) => {
+  res.render("trial.ejs");
+});
+
+app.get("/about", (req, res) => {
+  res.render("about.ejs");
+});
 //Error handler middleware
 
 app.all("*", (req, res, next) => {

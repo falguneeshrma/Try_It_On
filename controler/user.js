@@ -11,7 +11,7 @@ module.exports.signUp = async (req, res) => {
       if (err) {
         return next(err);
       }
-      req.flash("success", "Welcome to GreatPark!!");
+      req.flash("success", "Welcome to Try It On");
       res.redirect("/listings");
     });
   } catch (err) {
@@ -25,7 +25,7 @@ module.exports.loginPage = async (req, res) => {
 };
 
 module.exports.loginPost = async (req, res) => {
-  req.flash("success", "Login Successfully!!");
+  req.flash("success", "Logged in Successfully");
 
   //this is for again redirecting to listings after logout the user.
   let redirectUrl = res.locals.redirectUrl || "/listings";
@@ -38,7 +38,7 @@ module.exports.logout = async (req, res, next) => {
     if (err) {
       return next(err);
     }
-    req.flash("success", "Logged Out!!");
+    req.flash("success", "Logged out");
     res.redirect("/login");
   });
 };

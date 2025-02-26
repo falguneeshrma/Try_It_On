@@ -3,7 +3,7 @@ body {
   font-optical-sizing: auto;
   font-weight: weight;
   font-style: normal;
-
+  background-color: black;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -25,7 +25,7 @@ h1 {
 }
 
 a {
-  color: rgb(219, 41, 41) !important;
+  color: #FFD700 !important;
   text-decoration: none;
 }
 
@@ -80,22 +80,29 @@ button:hover {
 
 .navbar {
   height: 90px;
-  background-color: aliceblue;
+  background-color: black ;
   opacity: 0.9;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
 }
 
 .navbar-brand {
   font-size: 38px;
-  color: rgb(219, 41, 41);
+  color:#FFD700;
   font-weight: bolder;
 }
 
 .navbar-brand:hover {
-  color: rgb(219, 41, 41);
+  color: #FFD700;
 }
 
 .nav-link {
-  color: #222222 !important;
+  font-size: 1.5rem;
+  margin-left: 3rem;
+  color: wheat;
 }
 
 /* footer */
@@ -109,16 +116,15 @@ button:hover {
 }
 
 .f-info-links a:hover {
-  text-decoration: underline;
+  font-size: large;
+  color: white !important;
 }
 
-.f-info-socials,
-.f-info-links {
-  width: 100%;
-}
-.f-info-socials i {
+
+.f-info-socials {
   font-size: 1.35rem;
-  padding: 0.4rem;
+  padding-left: 5rem;
+  
   cursor: pointer;
 }
 
@@ -127,8 +133,8 @@ button:hover {
   height: 125px;
   display: flex;
   background-color: aliceblue;
-  flex-wrap: wrap;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
   /* align-items: center; */
 }
 
@@ -177,4 +183,9 @@ input[type="range"] {
 #map {
   height: 65vh;
   width: 100%;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+  color: #FFD700; /* Gold Yellow */
 }

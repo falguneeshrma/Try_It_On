@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        spline-viewer::part(logo) {
+            display: none;
+        }
+        .animated-text {
+        position: absolute; 
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 2em;
+        font-weight: bold;
+        color: rgb(14, 13, 13);
+        }
+    </style>
+</head>
+<body>
+    
+    <button type="button" class="btn btn-outline-primary">Primary</button>
+   
+    
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.68/build/spline-viewer.js">
+
+    </script>
+    
+    
+<spline-viewer url="https://prod.spline.design/a6kCjgJvnahJ2cvE/scene.splinecode"></spline-viewer>
+</body>
+</html>
+

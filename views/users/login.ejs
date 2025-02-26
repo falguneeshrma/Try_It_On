@@ -1,15 +1,16 @@
 <% layout("/layouts/boilerplate") %>
 
 <div class="row mt-5">
-  <div class="col-4 offset-4 authentication">
-    <a class="navbar-brand offset-3" href="/">
-      <span class="material-symbols-outlined"> linked_services </span>
-      <u>GreatPark</u></a
+  <div >
+      <a class="navbar-brand" style="margin-left: 40rem;"  href="/"
+      ><span class="material-symbols-outlined" style="font-size: xxx-large;"> face_retouching_natural </span> &nbsp;
+      Try It On</a
     >
+    </div>
 
-    <form action="/login" method="POST" novalidate class="needs-validation">
+    <form action="/login" method="POST" novalidate class="needs-validation" style="display: flex; flex-direction: column; align-items: center; margin-left: 40rem; width: 20rem;">
       <div>
-        <h3 class="mt-5" style="color: rgb(219, 41, 41)"><b>Login</b></h3>
+        <h3 class="mt-5" style="color: rgb(219, 41, 41); width: 29rem;"><b>Login</b></h3>
         <label for="username" class="form-label"> </label>
         <input
           type="text"
@@ -19,7 +20,6 @@
           class="form-control mt-2"
           required
         />
-
         <div class="invalid-feedback">Please enter Username!!</div>
         <!-- <div>
           <label for="email" class="form-label"> </label>
@@ -44,11 +44,11 @@
           required
         />
         <div class="invalid-feedback">Please enter Password!!</div>
-        <button id="login_btn" class="mt-4 signup-btn">Login</button>
+        <button id="login_btn" class="mt-4 signup-btn" style="background-color: #FFD700; margin-left: 9rem; width: 10rem;">Login</button>
       </div>
     </form>
-    <br />
-
-    <p>Don't have any account? <a href="/signup">SignUp</a></p>
+    
+  
+    <p style="color:  rgb(219, 41, 41); margin-top: 2rem; margin-left: 40rem;">Don't have any account? &nbsp;&nbsp;<a href="/signup">SignUp</a></p>
   </div>
 </div>

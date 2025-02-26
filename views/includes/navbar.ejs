@@ -1,80 +1,104 @@
-<style>
-  .btn-search {
-    color: #d32f2f;
-    border: 1px solid #d32f2f;
-    border-radius: 50%;
+  <style>
+    .btn-search {
+      color: #FFD700;
+    
 
-    padding: 0 1rem 0 1rem;
+      padding: 0 1rem 0 1rem;
+    }
+
+    .hello{
+      padding-top: 0.7rem;
+      font-size: 2.1rem;
+      color: #FFD700; 
+      font-family: Georgia, 'Times New Roman', Times, serif; 
+      font-size: 1.7rem;
+    }
+    .btn-search:hover {
+      font-size: large;
+    
+    }
+    .btn-search i {
+      display: inline;
+    }
+    .search-inp {
+    background-color: ghostwhite;
+      padding: 0.5rem 3rem 0.5rem 3rem;
+    
+    }
+    .searchBar {
+      margin-right: 10rem;
+      width: 20rem;
+    }
+
+    @media (max-width: 1054px) {
+      .nav-link {
+        font-size: 0.9rem;  /* Reduced font size */
+       }
+      .searchBar {
+        width: 15rem;  /* Reduced search bar width */
   }
-  .btn-search:hover {
-    color: black;
-    background-color: #d32f2f;
-  }
-  .btn-search i {
-    display: inline;
-  }
-  .search-inp {
-    border-radius: 25px;
-    padding: 0.5rem 3rem 0.5rem 3rem;
-  }
-  .searchBar {
-    margin-right: 10rem;
-    width: 20rem;
-  }
-</style>
-<nav class="navbar navbar-expand-lg bg-body-light border-bottom sticky-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/"
-      ><span class="material-symbols-outlined"> linked_services </span>
-      GreatPark</a
-    >
-    &nbsp; &nbsp;&nbsp;
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link" href="/listings">Explore</a>
-        <a class="nav-link" href="/listings/new">Villa's your Home</a>
+
+}
+
+
+
+  </style>
+  <nav class="navbar navbar-expand-lg bg-body-light border-bottom sticky-top" style="background-color: black;">
+    <div class="container-fluid">
+      <div >
+        <a class="navbar-brand"  href="/"
+        ><span class="material-symbols-outlined" style="font-size: xxx-large;"> face_retouching_natural </span> &nbsp;
+        Try It On</a
+      >
       </div>
+      
+      &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="/listings" style="font-family: Georgia, 'Times New Roman', Times, serif;">Explore</a>
+          <a class="nav-link trial-room" href="/trial" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 1.35rem; margin-right: 3rem;">Trial-Room</a>
+        </div>
 
-      <div class="ms-auto me-5">
-        <nav class="bg-body-tertiary searchBar">
-          <div class="navbar-nav container-fluid ">
-            <form class="d-flex" role="search" action="/listings">
-              <input
-                class="form-control me-2 search-inp"
-                type="search"
-                placeholder="Search for Villa's"
-                aria-label="Search"
-                name="q"
-              />
-              <button class="btn btn-search" type="submit">
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </button>
-            </form>
-          </div>
-        </nav>
-      </div>
+        <div class="ms-auto me-5" style="border-color: #FFD700;">
+          <nav class="bg-body-tertiary searchBar">
+            <div class="navbar-nav container-fluid ">
+              <form class="d-flex" role="search" action="/listings" >
+                <input
+                  class="form-control me-2 search-inp"  
+                  type="search"
+                  placeholder="Search for lenses" 
+                  aria-label="Search"
+                  name="q"
+                />
+                <button class="btn btn-search" style="color: #FFD700;" type="submit">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </form>
+            </div>
+          </nav>
+        </div>
 
-      <div class="navbar-nav ms-auto">
-        <% if (!curUser) { %>
-        <a class="nav-link" aria-current="page" href="/signup"><b>SignUp</b></a>
-        <a class="nav-link" href="/login"><b>Login</b></a>
-        <% } %> <% if (curUser) { %>
-        <h3 class="me-2">Hello, <%= curUser.username %></h3>
-        <br />
-        <a class="nav-link" href="/logout"><b>LogOut!</b></a>
-        <% } %>
+        <div class="navbar-nav ms-auto">
+          <% if (!curUser) { %>
+          <a class="nav-link" aria-current="page" href="/signup" style="font-family: Georgia, 'Times New Roman', Times, serif;"><b>Sign Up</b></a>
+          <a class="nav-link" href="/login" style="font-family: Georgia, 'Times New Roman', Times, serif;"><b>Login</b></a>
+          <% } %> <% if (curUser) { %>
+          <h3 class="hello"><b>Hello, <%= curUser.username %></b></h3> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <br />
+          <a class="nav-link" href="/logout" style="font-family: Georgia, 'Times New Roman', Times, serif; margin-right: 3.5rem;">Logout</a>
+          <% } %>
+        </div>
       </div>
     </div>
-  </div>
-</nav>
+  </nav>

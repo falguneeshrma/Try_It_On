@@ -16,27 +16,40 @@
     />
   </head>
   <body>
-    <div class="outside-container">
-      <div class="inside-container">
-        <div id="namste">🙏</div>
-        <div id="mainDiv">
-          <h1>Welcome to Villa Booking Portal</h1>
-          <p id="description" class="typing-effect">
-            A villa booking website is an online platform that allows users to
-            search for, view, and book luxury villas for vacations or events.
-            The site typically features high-quality images, detailed
-            descriptions, and amenities for each villa, along with availability
-            calendars and pricing options. Users can filter villas by location,
-            size, features, and dates, and book directly through a secure
-            payment system. Some websites may also offer user reviews, customer
-            support, and additional services like concierge or local experiences
-            to enhance the travel experience.
-          </p>
-          <form action="/listings">
-            <button style="background-color: bisque">Dashboard</button>
-          </form>
-        </div>
-      </div>
-    </div>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        spline-viewer::part(logo) {
+            display: none;
+        }
+        .animated-text {
+
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 4.3em;
+        font-weight: bold;
+        color: #FFD700;
+        text-decoration: none;
+    }
+    .animated-text:hover{
+      font-weight: bold;
+      font-size: 4.5rem;
+    }
+    </style>
+</head>
+<body>
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.68/build/spline-viewer.js"></script>
+<spline-viewer url="https://prod.spline.design/a6kCjgJvnahJ2cvE/scene.splinecode"></spline-viewer>
+</body>
+</html>
+<a href="/listings" class="animated-text">Magnitude Hackathon 2025 </a>
+
   </body>
 </html>

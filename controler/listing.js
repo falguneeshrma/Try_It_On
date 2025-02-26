@@ -1,7 +1,5 @@
 const Listing = require("../models/listing.js");
-const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding");
-const mapToken = process.env.MAP_TOKEN;
-const geocodingClient = mbxGeocoding({ accessToken: mapToken });
+
 
 module.exports.index = async (req, res, next) => {
   let listing = await Listing.find(); //get all listings
@@ -38,7 +36,7 @@ module.exports.index = async (req, res, next) => {
       searchListingByCountry.length === 0 &&
       searchListingByLocation === 0
     ) {
-      noResults = "No Such Villas Available.";
+      noResults = "More filters are yet to come...";
     } else {
       searchListing = [
         ...searchListingByTitle,
@@ -57,7 +55,7 @@ module.exports.index = async (req, res, next) => {
       (listings) => listings.category === category
     );
     if (filterListing.length === 0) {
-      noResults = "There is No villa in this Category.";
+      noResults = "More filters are yet to come...";
     }
   }
 
@@ -86,19 +84,14 @@ module.exports.show = async (req, res, next) => {
     .populate("owner");
 
   if (!listings) {
-    req.flash("error", "Listing you requested for does not Exists!!");
+    req.flash("error", "Filter you have requested for does not exist");
     res.redirect("/listings");
   }
   res.render("listing/show.ejs", { listings });
 };
 
 module.exports.create = async (req, res, next) => {
-  let response = await geocodingClient
-    .forwardGeocode({
-      query: req.body.listing.location,
-      limit: 1,
-    })
-    .send();
+ 
 
   let url = req.file.path;
   let filename = req.file.filename;
@@ -108,22 +101,13 @@ module.exports.create = async (req, res, next) => {
 
   listing.owner = req.user._id;
 
-  listing.image = { url, filename };
-
-  listing.geometry = response.body.features[0].geometry;
-
-  const listings = new Listing(listing);
-  await listings.save();
-
-  req.flash("success", "New Listing Created!!");
-  res.redirect("/listings");
 };
 
 module.exports.edit = async (req, res, next) => {
   let { id } = req.params;
   let listing = await Listing.findById(id).populate("owner");
   if (!listing) {
-    req.flash("error", "Listing you requested for does not Exists!!");
+    req.flash("error", "Filter you have requested for does not Exist");
     res.redirect("/listings");
   }
 
@@ -164,7 +148,7 @@ module.exports.update = async (req, res, next) => {
 module.exports.destroy = async (req, res, next) => {
   let { id } = req.params;
   await Listing.findByIdAndDelete(id);
-  req.flash("delete", "Listing Deleted!!");
+  req.flash("delete", "Filter Deleted!!");
   res.redirect("/listings");
 };
 

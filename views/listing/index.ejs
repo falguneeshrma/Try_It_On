@@ -3,106 +3,69 @@
 <style>
   #filters {
     display: flex;
+    margin-left: 5em;
     flex-wrap: wrap;
     align-items: center;
   }
   .filter {
-    color: #6a6a6a;
+    color: #FFD700;
     text-align: center;
-    margin: 2rem 3rem 0 0;
+    
+    margin: 2rem 4rem 0 0;
   }
+ 
+  .switch{
+    margin-left: 10 rem;
+  }
+
   .filter.active {
     font-weight: bold;
     color: black;
     text-decoration: underline;
   }
   .filter:hover {
-    color: black;
+    font-size: 1.05rem;
     cursor: pointer;
-    text-decoration: underline;
+    
   }
   .icons {
     font-size: 1.5rem;
   }
-  .tax-info {
+  .info {
     display: none;
   }
-  .tax-switch {
+  .switch {
     font-size: 1.2rem;
     border: 1px solid grey;
     border-radius: 1rem;
-    height: 3.5rem;
-    padding: 0.8rem;
-    /* margin-left: 20rem; */
-    margin-bottom: 0.9rem;
+    height: 2.5rem;
+    padding: 1rem 1rem 3rem 1rem;;
   }
 </style>
 
 <body>
-  <div id="home_page">
+  <div style="background-color: black;">
+    <div id="home_page" >
     <div id="filters">
-      <a href="/listings/?category=trending">
+      <a href="/listings/?category=men">
         <div class="filter">
-          <div class="icons"><i class="fa-brands fa-gripfire"></i></div>
-          <p>Trending</p>
+          <img alt="Man" src="/assets/man.jpg"  style="height: 3rem; width: 3rem; border-radius: 50%;"/>
+          <p>Men</p>
         </div>
       </a>
-      <a href="/listings/?category=rooms">
+      <a href="/listings/?category=woman">
         <div class="filter">
-          <div class="icons"><i class="fa-solid fa-house-user"></i></div>
-          <p>Rooms</p>
+          <div class="icons" ><img alt="Woman"  src="/assets/woman.jpg" style="height: 3rem; width: 3rem; border-radius: 50%;"/></div>
+          <p>Women</p>
         </div>
       </a>
-      <a href="/listings/?category=beachfront">
+      <a href="/listings/?category=kid">
         <div class="filter">
-          <div class="icons"><i class="fa-solid fa-umbrella-beach"></i></div>
-          <p>Beachfront</p>
+         <img alt="Kids" src="/assets/kid.jpg"  style="height: 3rem; width: 3rem; border-radius: 50%;"/>
+          <p>Kids</p>
         </div>
       </a>
-      <a href="/listings/?category=amazingpools">
-        <div class="filter">
-          <div class="icons"><i class="fa-solid fa-person-swimming"></i></div>
-          <p>Amazing Pools</p>
-        </div>
-      </a>
-      <a href="/listings/?category=castles">
-        <div class="filter">
-          <div class="icons"><i class="fa-brands fa-fort-awesome"></i></div>
-          <p>Castles</p>
-        </div>
-      </a>
-      <a href="/listings/?category=boathouse">
-        <div class="filter">
-          <div class="icons"><i class="fa-solid fa-sailboat"></i></div>
-          <p>Boat House</p>
-        </div>
-      </a>
-      <a href="/listings/?category=golfing">
-        <div class="filter">
-          <div class="icons"><i class="fa-solid fa-golf-ball-tee"></i></div>
-          <p>Golfing</p>
-        </div>
-      </a>
-      <a href="/listings/?category=iconiccities">
-        <div class="filter">
-          <div class="icons"><i class="fa-solid fa-mountain"></i></div>
-          <p>Iconic Cities</p>
-        </div>
-      </a>
-      <a href="/listings/?category=palaces">
-        <div class="filter">
-          <div class="icons"><i class="fa-solid fa-place-of-worship"></i></div>
-          <p>Palaces</p>
-        </div>
-      </a>
-      <a href="/listings/?category=waterhouse">
-        <div class="filter">
-          <div class="icons"><i class="fa-solid fa-water"></i></div>
-          <p>Water House</p>
-        </div>
-      </a>
-
-      <div class="tax-switch mt-4 ms-5">
+      <div class="switch mt-4 ms-5" style="background-color: black;">
         <div class="form-check form-switch form-check-reverse">
           <input
             class="form-check-input"
@@ -110,124 +73,50 @@
             role="switch"
             id="flexSwitchCheckDefault"
           />
-          <label class="form-check-label" for="flexSwitchCheckDefault"
-            >Display Price after Taxes</label
+          <label class="form-check-label" style="color: #FFD700;  font-size: medium;" for="flexSwitchCheckDefault"
+            ><i class="fa-solid fa-sun" style="color: #FFD700;"></i>&nbsp;&nbsp;&nbsp;Light Mode</label
           >
         </div>
       </div>
-    </div>
-
-    <% if (noResults) { %>
-      <br>
-      <br>
-      <br>
-      <h2><%= noResults %></h2>
-      <% } else { %>
-
-      <% if (category == undefined) { %>
-      <div id="heading">
-        <h1 style="border-radius: 20px">✨ V i l l a ' s ✨</h1>
-      </div>
-      <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
-
-        <% for (listings of listing) { %>
-
-        <a href="/listings/<%= listings._id %>">
-          <div class="card col listing-card">
-            <img
-              src="<%= listings.image.url %>"
-              class="card-img-top"
-              alt="listing_image"
-              style="height: 27rem"
-            />
-            <div class="card-img-overlay"></div>
-            <div class="card-body">
-              <h2 class="element">
-                Title:
-                <div id="heading2"><%= listings.title %></div>
-              </h2>
-              <!-- <p class="element">
-                <b> Discription: </b> <%= listings.description %>
-              </p> -->
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">
-                <b>Price: </b>
-                &#x20b9; <%= listings.price.toLocaleString("en-IN") %> per night
-                <i class="tax-info"> &nbsp; +18% GST</i>
-              </li>
-              <!-- <li class="list-group-item">
-                <b>Location: </b> <%= listings.location %>
-              </li> -->
-              <li class="list-group-item">
-                <b>Country: </b> <%= listings.country %>
-              </li>
-            </ul>
-          </div>
-        </a>
-        <% } %> 
-        <%} else if (category) {%>
-        <hr />
-        <h2><%=category.charAt(0).toUpperCase() + category.slice(1)%> :</h2>
-        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-2">
-          <% for (listings of filterListing) { %>
-          <a href="/listings/<%= listings._id %>">
-            <div class="card col listing-card">
-              <img
-                src="<%= listings.image.url %>"
-                class="card-img-top"
-                alt="listing_image"
-                style="height: 27rem"
-              />
-              <div class="card-img-overlay"></div>
-              <div class="card-body">
-                <h2 class="element">
-                  Title:
-                  <div id="heading2"><%= listings.title %></div>
-                </h2>
-                <!-- <p class="element">
-                        <b> Discription: </b> <%= listings.description %>
-                      </p> -->
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                  <b>Price: </b>
-                  &#x20b9; <%= listings.price.toLocaleString("en-IN") %> per night
-                  <i class="tax-info"> &nbsp; +18% GST</i>
-                </li>
-                <!-- <li class="list-group-item">
-                        <b>Location: </b> <%= listings.location %>
-                      </li> -->
-                <li class="list-group-item">
-                  <b>Country: </b> <%= listings.country %>
-                </li>
-              </ul>
-            </div>
-          </a>
-          <% } %>
-          <% } %>
-
-          <% } %>
-    </div>
-    <br>
-    <br>
-    <form action="/listings/new" method="GET">
-      <button id="create_btn">Create New!!</button>
-    </form>
   </div>
+    </div>
+    
+    
+  </div>
+  <br/><br/>
+
+  <% if(category==="men") {%>
+     <div class="card" style="width: 18rem; border: 1px solid black; "!important>
+  <img src="/assets/lens1.png" class="card-img-top" alt="..." style="height: 25.5rem;">
+  <div class="card-body">
+    <a href="https://lens.snap.com/experience/0d9ad177-d7bb-4b2a-804b-2680e75247e1" class="btn btn-success" style="width: 100%;">Try this lens</a>
+  </div>
+</div>
+    <% } else { %>
+  <h1>More filters are yet to come...</h1>
+      <% } %>
+
+ 
+      
 </body>
 
 <script>
-  let taxSwitch = document.getElementById("flexSwitchCheckDefault");
-  taxSwitch.addEventListener("click", () => {
+  let Switch = document.getElementById("flexSwitchCheckDefault");
+  Switch.addEventListener("click", () => {
     // console.log("Button clicked");
-    let taxInfo = document.getElementsByClassName("tax-info");
-    for (info of taxInfo) {
-      if (info.style.display != "inline") {
-        info.style.display = "inline";
-      } else {
-        info.style.display = "none";
-      }
+    let Info = document.getElementsByClassName("tax-info");
+   if (document.body.style.backgroundColor !== "ghostwhite") {
+      document.body.style.backgroundColor = "ghostwhite"; 
+      document.body.style.color = "black"; 
+      snapCamera.style.backgroundColor = "black";
+      
+    } else {
+      document.body.style.backgroundColor = "black"; 
+      document.body.style.color = "white"; 
+      snapCamera.style.backgroundColor = "white";
     }
   });
+
+   
+
 </script>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MindAR Face Tracking with Face-Covering Grid</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-face.prod.js"></script>
+    
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-face-aframe.prod.js"></script>
+    <script>
+      
+      AFRAME.registerComponent('face-grid', {
+        init: function () {
+    
+          const gridSize = 1;       
+          const divisions = 8;      
+          const centerColor = 0xffffff;
+          const gridColor = 0x00ff00;
+          const grid = new THREE.GridHelper(gridSize, divisions, centerColor, gridColor);
+          grid.rotation.x = -Math.PI / 2;  
+          
+          grid.position.set(0, 0, 0.05);
+          
+          this.el.setObject3D('grid', grid);
+        }
+      });
+    </script>
+  </head>
+  <body>
+    
+    <a-scene mindar-face="imageTargetSrc: /models/targets.mind;"
+             renderer="colorManagement: true, physicallyCorrectLights"
+             vr-mode-ui="enabled: false"
+             device-orientation-permission-ui="enabled: true">
+      
+      <a-assets timeout="10000">
+        
+      </a-assets>
+      
+      
+      <a-entity mindar-face-target="targetIndex: 0">
+        
+        <a-entity face-grid position="0 0 0" scale="3 3 3"></a-entity>
+      </a-entity>
+      
+      
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+      
+    </a-scene>
+  </body>
+</html>

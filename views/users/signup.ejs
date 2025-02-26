@@ -2,10 +2,12 @@
 
 <div class="row mt-5">
   <div class="col-4 offset-4 authentication">
-    <a class="navbar-brand offset-3" href="/">
-      <span class="material-symbols-outlined"> linked_services </span>
-      <u>GreatPark</u></a
+    <div >
+      <a class="navbar-brand"  href="/"
+      ><span class="material-symbols-outlined" style="font-size: xxx-large;"> face_retouching_natural </span> &nbsp;
+      Try It On</a
     >
+    </div>
 
     <form action="/signup" method="POST" novalidate class="needs-validation">
       <div>
@@ -44,10 +46,10 @@
           required
         />
         <div class="invalid-feedback">Please enter Password!!</div>
-        <button id="submit_btn" class="mt-4 signup-btn">SignUp</button>
+        <button id="submit_btn" class="mt-4 signup-btn" style="background-color: #FFD700; width: 10rem; margin-left: 10rem;" >SignUp</button>
       </div>
     </form>
     <br />
-    <p>If User already exists, <a href="/login">Login</a></p>
+    <p style="color: rgb(219, 41, 41);">User already exists? <a href="/login">&nbsp;&nbsp;&nbsp;Login</a></p>
   </div>
 </div>
